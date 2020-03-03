@@ -1,0 +1,55 @@
+##import the packages
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+from scipy.stats import stats
+from statsmodels.stats.stattools import durbin_watson
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+##import data
+data = pd.read_csv("filename.csv")
+
+##Sanity checks and EDA
+data.head()     ## gives first five rows
+data.shape      ## gives no.of rows and colums in the data
+data.columns    ## gives all the column names
+data.info()     ## gives the information about the attributes
+data.describe()  ##gives the count,mean,min,max,25th quartile,50th quartile,75th quartile of all the numerical variables
+data.corr()      ##gives the correlation matrix and values indicate the amt of relationship with the variables
+
+##impute missing values (refer: https://scikit-learn.org/stable/modules/impute.html)
+# mark zero values as missing or NaN
+dataset[[1,2,3,4,5]] = dataset[[1,2,3,4,5]].replace(0, numpy.NaN)
+# count the number of NaN values in each column
+print(dataset.isnull().sum())
+
+# drop rows with missing values
+dataset.dropna(inplace=True)
+
+# fill missing values with mean column values
+dataset.fillna(dataset.mean(), inplace=True)
+
+from sklearn.impute import SimpleImputer
+
+imp = SimpleImputer(strategy="mean")           ## for numeric type of data
+print(imp.fit_transform(df))
+
+imp = SimpleImputer(strategy="most_frequent")   ## for categorical type of data
+print(imp.fit_transform(df))
+
+##outlier detection (reference: https://seaborn.pydata.org/generated/seaborn.boxplot.html)
+ax = sns.boxplot(x=tips["total_bill"])                 # displays a single horizontal boxplot  
+ax = sns.boxplot(x="colname", y="colname", data=data)  #displays a vertical boxplot to identify the missing values
+
+sns.pairplot(data)               
+sns.distplot(data['colume_name'])   ##displays the graph which shows how the data is distributed
+
+
+
+
+
