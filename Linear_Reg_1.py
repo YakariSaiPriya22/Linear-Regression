@@ -8,7 +8,7 @@ Created on Sun Apr 28 11:09:51 2019
 import os
 print(os.getcwd())
 
-os.chdir("C:\\Users\\mojotics\\Google Drive\\CB4\\Statistics\\Topic 1 - Class4 - Linear Regression")
+os.chdir("path")
 
 #Step1 : Clear Business Understanding 
 # Step 2: Data Gathering from different sources - 
@@ -78,7 +78,6 @@ from sklearn.linear_model import LinearRegression
 lm = LinearRegression()
 
 lm.fit(X_train,y_train)
-
 
 #Predictions from our Model
 #Let's grab predictions off our Train set and see how well it did!
