@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 28 11:09:51 2019
-
-@author: mojotics
-"""
 
 import os
 print(os.getcwd())
